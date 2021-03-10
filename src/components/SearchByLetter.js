@@ -3,7 +3,7 @@ import '../styles/SearchByLetter.css';
 
 const SearchByLetter = () => (
   <div className="search-letter-container">
-    <h3>Browse By Name</h3>
+    <h3>Browse Meal By Name:</h3>
     <ul className="list-alphabetical">
       <li><a href="/search?f=a">A</a></li>
       <li><a href="/search?f=b">B</a></li>
