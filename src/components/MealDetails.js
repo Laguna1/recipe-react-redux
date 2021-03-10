@@ -23,15 +23,15 @@ const MealDetails = () => {
   const ingredients = [];
   const quantity = [];
 
-  Object.entries(detail.meals).forEach(([key, value]) => {
-    if (key.includes('strIngredient') && value) {
-      const ingredient = value.split('');
-      ingredient[0] = ingredient[0].toUpperCase();
-      ingredients.push(ingredient.join(''));
-    } else if (key.includes('strMeasure') && value) {
-      quantity.push(value);
-    }
-  });
+  // Object.entries(detail.meals).forEach(([key, value]) => {
+  //   if (key.includes('strIngredient') && value) {
+  //     const ingredient = value.split('');
+  //     ingredient[0] = ingredient[0].toUpperCase();
+  //     ingredients.push(ingredient.join(''));
+  //   } else if (key.includes('strMeasure') && value) {
+  //     quantity.push(value);
+  //   }
+  // });
 
   return (
     detail.meals.map(meal => (
@@ -45,6 +45,11 @@ const MealDetails = () => {
             Category:
             {' '}
             {meal.strCategory}
+          </p>
+          <p className="detail-fields">
+            Country:
+            {' '}
+            {meal.strArea}
           </p>
           <p className="detail-fields">
             Tags:
@@ -73,6 +78,10 @@ const MealDetails = () => {
           <div className="instructions">
             <h3>Instructions</h3>
             {meal.strInstructions}
+          </div>
+          <div className="video-link">
+            <h3>Youtube:</h3>
+            {meal.strYoutube}
           </div>
         </div>
       </div>
