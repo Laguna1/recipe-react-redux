@@ -35,13 +35,3 @@ code {
     'Courier New',
     monospace;
 }
-
-button {
-  background: none;
-  color: white;
-  font-weight: 700;
-  border: 5px solid yellow;
-  border-radius: 8px;
-  padding: 5px;
-  margin: 10px;
-}

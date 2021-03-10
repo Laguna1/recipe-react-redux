@@ -1,5 +1,5 @@
 .meal-container {
-  height: 60vh;
+  height: 65vh;
   background-size: cover;
   display: flex;
   align-items: flex-end;
@@ -7,15 +7,17 @@
   border-radius: 1rem;
 }
 
-.meal-bottom {
-  display: flex;
-}
-
-.meal-name {
+.meal-button {
+  background: #00000074;
   color: white;
   font-weight: 700;
   border: 5px solid yellow;
-  border-radius: 8px;
-  padding: 5px;
-  margin: 10px;
+  border-radius: 1rem;
+  padding: 15px;
+  margin: 20px;
+  width: 100%;
+}
+
+.meal-button:hover {
+  background: yellow;
 }

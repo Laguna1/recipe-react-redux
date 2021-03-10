@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './reducers/index';
 import './styles/index.css';
 import App from './components/App';
-// eslint-disable-next-line import/extensions
-import Footer from './layouts/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Footer />
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

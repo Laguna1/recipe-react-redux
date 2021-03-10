@@ -4,10 +4,7 @@ import '../styles/Meal.css';
 
 const Meal = ({ meal }) => (
   <div className="meal-container" style={{ backgroundImage: `url(${meal.strMealThumb})` }}>
-    <div className="meal-bottom">
-      <div className="meal-name">{meal.strMeal}</div>
-      <button type="button">Meal Details</button>
-    </div>
+    <button className="meal-button" type="button">{meal.srtMeal}</button>
   </div>
 );
 
