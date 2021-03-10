@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Meal from '../components/Meal';
+import { API_MAIN, API_SEARCH } from '../constants/api';
 import '../styles/MealList.css';
 
 const MealList = () => {
@@ -9,7 +10,7 @@ const MealList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'https://www.themealdb.com/api/json/v1/1/search.php?f=a',
+        `${API_MAIN}${API_SEARCH}a`,
       );
 
       setData(result.data);

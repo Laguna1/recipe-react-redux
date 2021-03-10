@@ -1,8 +1,10 @@
-import MealDetails from './MealDetails';
+import MealList from '../containers/MealList';
+import SearchByLetter from './SearchByLetter';
 
 const App = () => (
   <div className="App">
-    <MealDetails />
+    <MealList />
+    <SearchByLetter />
   </div>
 );
 export default App;
