@@ -5,7 +5,7 @@ import '../styles/Meal.css';
 
 const Meal = ({ meal }) => (
   <div className="meal-container" style={{ backgroundImage: `url(${meal.strMealThumb})` }}>
-    <Link to="/details" className="meal-button" type="button">{meal.srtMeal}</Link>
+    <Link to={`/details/${meal.idMeal}`} className="meal-button">{meal.srtMeal}</Link>
   </div>
 );
 

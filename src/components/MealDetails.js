@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { API_MAIN, API_DETAIL } from '../constants/api';
 import '../styles/MealDetails.css';
 
 const MealDetails = () => {
   const [detail, setDetail] = useState({ meals: [] });
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchDetail = async () => {
       const result = await axios(
-        'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772',
+        `${API_MAIN}${API_DETAIL}${id}`,
       );
 
       setDetail(result.data);
