@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Meal from '../components/Meal';
+import '../styles/MealList.css';
 
 const MealList = () => {
   const [data, setData] = useState({ meals: [] });
@@ -17,14 +19,9 @@ const MealList = () => {
   }, []);
 
   return (
-    <ul>
-      {data.meals.map(item => (
-        <li key={item.idMeal}>
-          {item.strMeal}
-          <img src={item.strMealThumb} alt="..." />
-        </li>
-      ))}
-    </ul>
+    <div className="meal-list">
+      {data.meals.map(meal => (<Meal key={meal.idMeal} meal={meal} />))}
+    </div>
   );
 };
 

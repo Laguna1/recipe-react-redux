@@ -1,0 +1,21 @@
+.meal-container {
+  height: 50vh;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  border: 5px solid yellow;
+  border-radius: 1rem;
+}
+
+.meal-bottom {
+  display: flex;
+}
+
+.meal-name {
+  color: white;
+  font-weight: 700;
+  border: 5px solid yellow;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px;
+}
