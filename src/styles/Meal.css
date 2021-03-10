@@ -3,6 +3,7 @@
   background-size: cover;
   display: flex;
   align-items: flex-end;
+  text-align: center;
   border: 5px solid yellow;
   border-radius: 1rem;
 }
@@ -10,6 +11,7 @@
 .meal-button {
   background: #00000074;
   color: white;
+  text-decoration: none;
   font-weight: 700;
   border: 5px solid yellow;
   border-radius: 1rem;
