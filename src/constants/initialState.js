@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   data:
     {
       meals: [],
-      isloading: false,
+      isLoading: false,
       isError: false,
     },
 };

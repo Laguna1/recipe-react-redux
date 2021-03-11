@@ -8,7 +8,6 @@ const dataFetchStart = () => ({
 
 const dataFetchSuccess = data => ({
   type: FETCH_SUCCESS,
-  data,
   payload: data.meals,
 });
 

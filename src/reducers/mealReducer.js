@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions/index';
 
 const mealReducer = (state = {}, action) => {
@@ -6,7 +5,9 @@ const mealReducer = (state = {}, action) => {
     case FETCH_START:
       return { ...state, isLoading: true };
     case FETCH_SUCCESS:
-      return { ...state, isLoading: false, isError: false, meals: action.payload }
+      return {
+        ...state, isLoading: false, isError: false, meals: action.payload,
+      };
     case FETCH_FAILURE:
       return { ...state, isLoading: false, isError: true };
     default:
