@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { detailsFetchStart, detailsFetchSuccess, detailsFetchFailure } from '../actions/index';
+import Footer from '../layouts/Footer';
 import { API_MAIN, API_DETAIL } from '../constants/api';
 import '../styles/MealDetails.css';
 
@@ -46,7 +47,7 @@ const MealDetails = ({
 
   return (
     <>
-      {isError && <div>Someting is wrong. Please try again...</div>}
+      {isError && <div>Someting went wrong. Please try again...</div>}
       {isLoading ? (
         <div>Loading details...</div>
       ) : (
@@ -63,53 +64,46 @@ const MealDetails = ({
                 {meal.strCategory}
               </p>
               <p className="detail-fields">
-                Country:
-                {' '}
-                {meal.strArea}
-              </p>
-              <p className="detail-fields">
-                Tags:
+                Meal Tags:
                 {' '}
                 {meal.strTags}
               </p>
               <table className="details-table">
                 <thead>
                   <tr>
-                    <th aria-label="blank" />
-                    <th>Ingredients</th>
+                    <th aria-label="blank" className="small-col" />
+                    <th className="last-col">Ingredients</th>
                     <th>Quantity</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
-        ingredients.map((ingredient, i) => (
-          <tr className="row" key={`${ingredient}-${i + 1}`}>
-            <td>
-              {i + 1}
-              .
-            </td>
-            <td>{ingredient}</td>
-            <td>{quantity[i]}</td>
-          </tr>
-        ))
-      }
+                    ingredients.map((ingredient, i) => (
+                      <tr className="row" key={`${ingredient}-${i + 1}`}>
+                        <td className="small-col">
+                          {i + 1}
+                          .
+                        </td>
+                        <td className="last-col">{ingredient}</td>
+                        <td>{quantity[i]}</td>
+                      </tr>
+                    ))
+                  }
                 </tbody>
               </table>
               <div className="instructions">
-                <h3>Instructions</h3>
+                <h3>Preparation</h3>
                 {meal.strInstructions}
-              </div>
-              <div className="video-link">
-                <h3>Youtube:</h3>
-                {meal.strYoutube}
               </div>
             </div>
           </div>
         ))
       )}
+      <Footer />
     </>
   );
 };
+
 MealDetails.propTypes = {
   fetchStart: PropTypes.func.isRequired,
   fetchSuccess: PropTypes.func.isRequired,
