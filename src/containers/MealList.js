@@ -3,14 +3,20 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Meal from '../components/Meal';
+import CategoryFilter from '../components/CategoryFilter';
 import { API_MAIN, API_SEARCH } from '../constants/api';
-import { dataFetchStart, dataFetchSuccess, dataFetchFailure } from '../actions/index';
+import {
+  dataFetchStart, dataFetchSuccess, dataFetchFailure, changeCategoryAction,
+} from '../actions/index';
 import '../styles/MealList.css';
 // import styled from 'styled-components';
 
 const MealList = ({
-  fetchStart, fetchSuccess, fetchFailure, meals, isLoading, isError, search,
+  fetchStart, fetchSuccess, fetchFailure, meals, isLoading, isError, search, category,
+  changeCategory,
 }) => {
+  const handleChangeCategory = event => changeCategory(event.target.value);
+  const mealFilter = category === 'All' ? meals : meals.filter(meal => meal.strCategory === category);
   useEffect(() => {
     const fetchData = async () => {
       fetchStart();
@@ -34,7 +40,8 @@ const MealList = ({
         <div>Wait...</div>
       ) : (
         <div className="meal-list">
-          {meals.map(meal => (<Meal key={meal.idMeal} meal={meal} />))}
+          <CategoryFilter handleFilterChange={handleChangeCategory} />
+          {mealFilter.map(meal => (<Meal key={meal.idMeal} meal={meal} />))}
         </div>
       )}
     </>
@@ -49,6 +56,8 @@ MealList.propTypes = {
   isError: PropTypes.bool,
   isLoading: PropTypes.bool,
   search: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  changeCategory: PropTypes.func.isRequired,
 };
 
 MealList.defaultProps = {
@@ -61,12 +70,14 @@ const mapStateToProps = state => ({
   meals: state.data.meals,
   isLoading: state.data.isLoading,
   isError: state.data.isError,
+  category: state.categories,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchStart: () => dispatch(dataFetchStart()),
   fetchSuccess: data => dispatch(dataFetchSuccess(data)),
   fetchFailure: () => dispatch(dataFetchFailure()),
+  changeCategory: category => dispatch(changeCategoryAction(category)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealList);
