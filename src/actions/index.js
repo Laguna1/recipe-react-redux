@@ -1,30 +1,21 @@
-// const MEAL = 'MEAL';
-// const MEAL_FETCH_BEGIN = 'MEAL_FETCH_BEGIN';
-// const MEAL_FETCH_SUCCESS = 'MEAL_FETCH_SUCCESS';
-// const MEAL_FETCH_FAILURE = 'MEAL_FETCH_FAILURE';
+const FETCH_START = 'FETCH_START';
+const FETCH_SUCCESS = 'FETCH_SUCCESS';
+const FETCH_FAILURE = 'FETCH_FAILURE';
 
-// const getMealAction = id => (
-//   {
-//     type: MEAL,
-//     payload: id,
-//   }
-// );
+const dataFetchStart = () => ({
+  type: FETCH_START,
+});
 
-// const fetchBeginAction = () => (
-//   {
-//     type: MEAL_FETCH_BEGIN,
-//   }
-// );
+const dataFetchSuccess = data => ({
+  type: FETCH_SUCCESS,
+  data,
+  payload: data.meals,
+});
 
-// const fetchSuccessAction = data => (
-//   {
-//     type: MEAL_FETCH_SUCCESS,
-//     payload: data.drinks,
-//   }
-// );
+const dataFetchFailure = () => ({
+  type: FETCH_FAILURE,
+});
 
-// const fetchFailureAction = () => (
-//   {
-//     type: MEAL_FETCH_FAILURE,
-//   }
-// );
+export {
+  FETCH_START, FETCH_FAILURE, FETCH_SUCCESS, dataFetchStart, dataFetchSuccess, dataFetchFailure,
+};

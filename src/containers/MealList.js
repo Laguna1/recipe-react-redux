@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Meal from '../components/Meal';
 import { API_MAIN, API_SEARCH } from '../constants/api';
 import '../styles/MealList.css';
+// import styled from 'styled-components';
 
 const MealList = ({ search }) => {
   const [data, setData] = useState({ meals: [] });

@@ -1,7 +1,10 @@
 const INITIAL_STATE = {
-  meals: [],
-  loading: false,
-  url: '',
+  data:
+    {
+      meals: [],
+      isloading: false,
+      isError: false,
+    },
 };
 
 export default INITIAL_STATE;
