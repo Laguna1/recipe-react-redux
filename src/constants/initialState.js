@@ -5,6 +5,11 @@ const INITIAL_STATE = {
       isLoading: false,
       isError: false,
     },
+  details: {
+    drinks: [],
+    isLoading: false,
+    isError: false,
+  },
   categories: 'All',
 };
 

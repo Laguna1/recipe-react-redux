@@ -15,8 +15,8 @@ const MealList = ({
   fetchStart, fetchSuccess, fetchFailure, meals, isLoading, isError, search, category,
   changeCategory,
 }) => {
-  const handleChangeCategory = event => changeCategory(event.target.value);
-  const mealFilter = category === 'All' ? meals : meals.filter(meal => meal.strCategory === category);
+  // const handleChangeCategory = event => changeCategory(event.target.value);
+  const mealFiltered = category === 'All' ? meals : meals.filter(meal => meal.strCategory === category);
   useEffect(() => {
     const fetchData = async () => {
       fetchStart();
@@ -35,14 +35,19 @@ const MealList = ({
 
   return (
     <>
-      {isError && <div>Something is wrong ...</div>}
+      {isError && <div>Something is wrong. Try again...</div>}
       {isLoading ? (
         <div>Wait...</div>
       ) : (
-        <div className="meal-list">
-          <CategoryFilter handleFilterChange={handleChangeCategory} />
-          {mealFilter.map(meal => (<Meal key={meal.idMeal} meal={meal} />))}
-        </div>
+        <>
+          {mealFiltered && mealFiltered.length ? (
+            <div className="meal-list">
+              {mealFiltered.map(meal => (<Meal key={meal.idMeal} meal={meal} />))}
+            </div>
+          ) : (
+            <div>Sorry, there are no meals this category yet...</div>
+          )}
+        </>
       )}
     </>
   );
