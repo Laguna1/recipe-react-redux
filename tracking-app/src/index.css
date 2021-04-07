@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #00e90c;
+  background-image: linear-gradient(160deg, #00e90c 0%, #b8d080 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 100%;
+}
+
+.login-group,
+.home-page,
+.book-info,
+.books-list {
+  display: flex;
+  height: 86vh;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+.infocontent {
+  height: 50vh;
+}
+
+.nav {
+  font-family: 'Roboto Slab', serif;
+}
+
+.home-info,
+.book-details,
+.books-content {
+  width: 50%;
+  background-color: rgb(151, 241, 148);
+  padding: 1%;
+}
+
+form {
+  background-color: rgb(151, 241, 148);
+}
+
+.nav-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  align-items: center;
+  padding: 1%;
+}
+
+.nav-item-easy {
+  border: 1px solid rgba(209, 209, 209, 0.1);
+}
+
+.mob-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 470px) {
+  .home-info,
+  .book-details,
+  .books-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mob-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .login-group,
+  .home-page,
+  .book-info,
+  .books-list {
+    display: block;
+    height: 100vh;
+    font-family: 'Roboto Slab', serif;
+    padding: 2%;
+  }
+
+  .login,
+  .signup,
+  .book-item {
+    margin-top: 15%;
+  }
+
+  .infocontent {
+    height: 60vh;
+    overflow: auto;
+  }
+
+  .percentinfo h1 {
+    font-size: 150%;
+  }
+
+  .detailinfo h4 {
+    font-size: 100%;
+  }
+
+  .detailinfo i {
+    font-size: 100%;
+  }
+}
